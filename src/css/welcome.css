@@ -7,8 +7,8 @@
     flex-direction: column;
     text-align: center;
     
-    /* Mengganti background-color dengan background-image dan efek gelap transparan */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./src/assets/images/bg.jpeg');
+    /* Menggabungkan efek gelap transparan dan background image dengan path yang benar */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/images/bg.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
