@@ -71,7 +71,7 @@ export const data = {
         {
             id: 1,
             name: 'Aditya Putera Prakosa',
-            icon: './src/assets/images/65e38a5c23c54-SeaBank.png',
+            icon: './src/assets/images/bca.png',
             rekening: '00000000'
         },
         {
