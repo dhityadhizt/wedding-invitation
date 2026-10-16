@@ -29,6 +29,11 @@ export const data = {
                 finish: 'Selesai'
             }
         },
+        address: 'Purwodadi'
+    },
+    link: {
+        map: 'https://maps.app.goo.gl/q1Ask2Jgd4ekiiKBA'
+    },
         reception: {
             year: '2027',
             month: 'Juni',
