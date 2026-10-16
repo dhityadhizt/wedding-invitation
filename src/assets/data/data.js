@@ -3,7 +3,7 @@ export const data = {
         L: {
             id: 1,
             name: 'Aditya Putera Prakosa',
-            child: 'Pertama',
+            child: 'Putra Pertama',
             father: 'Ahdiat U.P.',
             mother: 'Ratna T.W.',
             image: './src/assets/images/cowo.png'
@@ -11,7 +11,7 @@ export const data = {
         P: {
             id: 2,
             name: 'Diva Farenta Setia W.',
-            child: 'Pertama',
+            child: 'Putri Pertama',
             father: 'Agus',
             mother: 'Gesti',
             image: './src/assets/images/cewe.png'
@@ -29,11 +29,6 @@ export const data = {
                 finish: 'Selesai'
             }
         },
-        address: 'Purwodadi'
-    },
-    link: {
-        map: 'https://maps.app.goo.gl/q1Ask2Jgd4ekiiKBA'
-    },
         reception: {
             year: '2027',
             month: 'Juni',
