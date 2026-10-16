@@ -6,7 +6,13 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    background-color: #212529;
+    
+    /* Mengganti background-color dengan background-image dan efek gelap transparan */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./src/assets/images/bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
     position: fixed;
     top: 0;
     left: 0;
