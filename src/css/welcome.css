@@ -12,7 +12,7 @@
     text-align: center;
     
     /* Lapisan 1: Background gelap transparan + bg.jpg */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/images/bg.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/images/bg.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
