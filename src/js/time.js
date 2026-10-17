@@ -14,28 +14,11 @@ export const time = () => {
             <h3>${title}</h3>
             <p>${details.day}, ${details.date} ${details.month} ${details.year} <br> 
             Pukul ${details.hours.start} WIB sd ${details.hours.finish}</p>
-            <p style="margin-top: 0.6rem; font-size: 0.95rem; line-height: 1.4; color: #4a5568;">${details.address || ''}</p>
+            <p style="margin-top: 0.5rem; font-weight: 500;">${details.address || ''}</p>
             ${details.map ? `
-                <a href="${details.map}" target="_blank" rel="noopener noreferrer" style="
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 0.5rem;
-                    margin-top: 0.8rem;
-                    padding: 0.45rem 1.1rem;
-                    background-color: #ffffff;
-                    color: #2d3748;
-                    border: 1px solid #cbd5e0;
-                    border-radius: 20px;
-                    text-decoration: none;
-                    font-size: 0.85rem;
-                    font-weight: 500;
-                    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-                    transition: all 0.3s ease;
-                    width: fit-content;
-                ">
-                    <i class="bx bxs-map-alt" style="font-size: 1.1rem; color: #e53e3e;"></i>
-                    <span>Petunjuk Lokasi</span>
+                <a href="${details.map}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.8rem; padding: 0.4rem 0.8rem; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: inherit;">
+                    <i class="bx bxs-map-alt"></i>
+                    <span>Petunjuk Lokasi ${title}</span>
                 </a>
             ` : ''}
         `;
