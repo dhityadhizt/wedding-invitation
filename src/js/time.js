@@ -6,12 +6,6 @@ export const time = () => {
 
     const [marriageDiv, receptionDiv] = timeContainer.querySelectorAll('div div');
 
-    // Sembunyikan elemen bawaan lama agar tidak bentrok
-    const mapLink = timeContainer.querySelector('a[role="link"]');
-    const addressParagraph = timeContainer.querySelector('a + p');
-    if (mapLink) mapLink.style.display = 'none';
-    if (addressParagraph) addressParagraph.style.display = 'none';
-
     // Helper function untuk merender kartu acara lengkap dengan Alamat & Maps
     const createTimeListItem = (title, details) => {
         if (!details) return '';
