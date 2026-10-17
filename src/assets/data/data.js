@@ -28,8 +28,8 @@ export const data = {
                 start: '08.00',
                 finish: 'Selesai'
             },
-            address: 'Alamat Lengkap Akad & Resepsi Di Sini', // <-- Alamat Khusus Akad & Resepsi
-            map: 'https://maps.app.goo.gl/link-maps-akad' // <-- Link Google Maps Akad
+            address: 'Grobogan, Purwodadi', // <-- Alamat Khusus Akad & Resepsi
+            map: 'https://maps.app.goo.gl/rKz1hYi5S4eSR8zN9?g_st=ic' // <-- Link Google Maps Akad
         },
         reception: {
             year: '2027',
@@ -40,12 +40,12 @@ export const data = {
                 start: '11.00',
                 finish: 'Selesai'
             },
-            address: 'Yogyakarta City, Sewonderful', // <-- Alamat Khusus Tasyakuran
+            address: 'Bantul, Yogyakarta', // <-- Alamat Khusus Tasyakuran
             map: 'https://maps.app.goo.gl/j26VbCMfVoD6oGV2A?g_st=ic' // <-- Link Google Maps Tasyakuran
         }
     },
     link: {
-        calendar: 'https://calendar.app.google/oSVLRMYC79GzuA4f9'
+        calendar: 'https://calendar.app.google/3MUoiXyQHaUS3zq58'
     },
     galeri: [
         { id: 1, image: './src/assets/images/1.png' },
