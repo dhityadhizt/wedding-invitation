@@ -64,7 +64,7 @@ export const data = {
         {
             id: 2,
             name: 'Diva Farenta Setia Wardani ',
-            icon: './src/assets/images/bri.png',
+            icon: './src/assets/images/spay.png',
             rekening: '1111111111'
         }
     ],
