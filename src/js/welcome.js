@@ -11,9 +11,9 @@ export const welcome = () => {
     const [iconButton] = audioButton.children;
 
     const generateFigureContent = (bride) => {
-        const {L: {name: brideLName}, P: {name: bridePName}, couple: coupleImage} = bride;
+        const {L: {name: brideLName}, P: {name: bridePName}} = bride;
         return `
-            <img src="${coupleImage}" alt="couple animation">
+            <img src="src/assets/images/couple.jpg" alt="couple image">
             <figcaption>
                 ${brideLName.split(' ')[0]} & ${bridePName.split(' ')[0]}
             </figcaption>`;
@@ -25,29 +25,29 @@ export const welcome = () => {
 
         if (params) {
             weddingToElement.innerHTML = `Kepada Yth Bapak/Ibu/Saudara/i<br><span>${params}</span>`;
-            name.value = params;
+            if (name) name.value = params;
         } else {
             weddingToElement.innerHTML = `Kepada Yth Bapak/Ibu/Saudara/i<br><span>You are invited</span>`;
         }
-    }
+    };
 
     const initialAudio = () => {
         let isPlaying = false;
 
-        audioMusic.innerHTML = `<source src=${data.audio} type="audio/mp3"/>`;
+        audioMusic.innerHTML = `<source src="${data.audio}" type="audio/mp3"/>`;
+        audioMusic.load();
 
         audioButton.addEventListener('click', () => {
-
-            if (isPlaying) {
+            if (!isPlaying) {
+                audioMusic.play().catch(e => console.log("Audio autoplay prevented:", e));
                 addClassElement(audioButton, 'active');
                 removeClassElement(iconButton, 'bx-play-circle');
                 addClassElement(iconButton, 'bx-pause-circle');
-                audioMusic.play();
             } else {
+                audioMusic.pause();
                 removeClassElement(audioButton, 'active');
                 removeClassElement(iconButton, 'bx-pause-circle');
                 addClassElement(iconButton, 'bx-play-circle');
-                audioMusic.pause();
             }
             isPlaying = !isPlaying;
         });
@@ -63,7 +63,7 @@ export const welcome = () => {
             addClassElement(audioButton, 'show');
             removeClassElement(iconButton, 'bx-play-circle');
             addClassElement(iconButton, 'bx-pause-circle');
-            audioMusic.play();
+            audioMusic.play().catch(e => console.log("Audio autoplay prevented:", e));
         }, 1500);
 
         setTimeout(() => {
@@ -74,9 +74,13 @@ export const welcome = () => {
     const initializeWelcome = () => {
         figureElement.innerHTML = generateFigureContent(data.bride);
         generateParameterContent();
-        addClassElement(welcomeElement, 'active');
-    }
+
+        // Memicu animasi slide down background & decorative
+        setTimeout(() => {
+            addClassElement(welcomeElement, 'active');
+        }, 100);
+    };
 
     initializeWelcome();
     initialAudio();
-}
+};
