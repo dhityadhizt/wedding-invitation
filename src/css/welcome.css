@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Welcome Section Styles
+   ========================================================================== */
+
 .welcome {
     width: 100%;
     height: 100vh;
@@ -7,8 +11,8 @@
     flex-direction: column;
     text-align: center;
     
-    /* Menggabungkan efek gelap transparan dan background image dengan path yang benar */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/images/bg.jpeg');
+    /* Lapisan 1: Background gelap transparan + bg.jpg */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/images/bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -20,68 +24,151 @@
     bottom: 0;
     z-index: 99;
     color: #303042;
-    transition: all 2s ease-in;
-    opacity: 0;
+    overflow: hidden;
+
+    /* Efek Masuk Background: Slide ke bawah */
     transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
 }
 
+/* State Aktif saat Pertama kali Masuk */
 .welcome.active {
     transform: translateY(0);
     opacity: 1;
 }
 
+/* State Keluar saat Tombol Buka Undangan Diklik (Slide Ke Atas) */
 .welcome.hide {
-    top: -100%;
+    transform: translateY(-100%);
     opacity: 0;
+    pointer-events: none;
+    transition: transform 1.2s cubic-bezier(0.5, 0, 0.75, 0) 0.4s, opacity 0.8s ease 0.4s;
+}
+
+/* --------------------------------------------------------------------------
+   Lapisan 2: Decorative Ornaments (Tengah)
+   -------------------------------------------------------------------------- */
+.welcome-decorative {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
+}
+
+/* Ornamen Atas */
+.welcome-decorative.decorative-up {
+    top: 0;
+    transform: translateY(-100%);
+}
+
+/* Ornamen Bawah */
+.welcome-decorative.decorative-down {
+    bottom: 0;
+    transform: translateY(100%);
+}
+
+/* Animasi Masuk Ornamen (Delay Setelah Background Selesai Slide) */
+.welcome.active .welcome-decorative {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}
+
+/* Animasi Keluar Ornamen (Slide Out Lebih Dulu Sebelum Background Ke Atas) */
+.welcome.hide .welcome-decorative.decorative-up {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition-delay: 0s;
+}
+
+.welcome.hide .welcome-decorative.decorative-down {
+    opacity: 0;
+    transform: translateY(100%);
+    transition-delay: 0s;
+}
+
+/* --------------------------------------------------------------------------
+   Lapisan 3: Teks, Foto & Tombol (Atas)
+   -------------------------------------------------------------------------- */
+.welcome h2,
+.welcome figure,
+.welcome p,
+.welcome button {
+    position: relative;
+    z-index: 3;
 }
 
 .welcome h2 {
     font-size: 2.4rem;
-    font-family: var(--sacramento);
+    font-family: var(--sacramento, cursive);
     font-weight: 400;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
+/* Foto Couple 3/4 Layar dari Atas dengan Efek Transparan di Ujung Sisi */
 .welcome figure {
-    display: inherit;
-    align-items: inherit;
-    justify-content: inherit;
-    flex-direction: inherit;
-    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0.5rem 0;
+    width: 100%;
+    max-width: 450px;
+    height: 60vh; /* Sekitar 3/4 tinggi layar */
+    
+    /* Radial gradient mask untuk efek semi transparan di setiap ujung foto */
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
 }
 
 .welcome figure img {
-    width: 10rem;
-    height: 10rem;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    box-shadow: var(--shadow-md);
-    border: 2px solid #fff;
+    border-radius: 15px;
 }
 
 .welcome figure figcaption {
-    font-size: var(--fontSize-heading-base);
-    font-family: var(--sacramento);
+    font-size: var(--fontSize-heading-base, 1.8rem);
+    font-family: var(--sacramento, cursive);
     font-weight: 400;
     margin-top: 0.5rem;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.welcome p {
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
 .welcome p span {
-    font-size: 2rem;
-    margin: 1rem 0;
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
     display: block;
+    font-weight: bold;
 }
 
 .welcome button {
-    display: inherit;
-    align-items: inherit;
-    justify-content: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     gap: 0.4rem;
     color: #000;
-    padding: 0.5rem 1rem;
+    background-color: #fff;
+    padding: 0.5rem 1.2rem;
     border: none;
-    transition: var(--transition-small);
+    transition: var(--transition-small, all 0.3s ease);
     border-radius: 15px;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .welcome button:hover {
