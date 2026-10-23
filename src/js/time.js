@@ -49,7 +49,7 @@ export const time = () => {
     };
 
     if (marriageDiv) {
-        marriageDiv.innerHTML = createTimeListItem('Akad dan Resepsi', data.time?.marriage);
+        marriageDiv.innerHTML = createTimeListItem('Akad & Resepsi', data.time?.marriage);
     }
     
     if (receptionDiv) {
